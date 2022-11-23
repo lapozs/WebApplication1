@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="pascal">
+
+    </div>
+    <script>
+        let szinLista = [];
+
+        fetch("jokes.json")
+            .then(r => r.json())
+            .then(j => {
+                for (var i = 0; i < j.length; i++) {
+                    console.log(j)
+                }
+            })
+        var pascal = document.getElementById("pascal");
+        var méret = 10;
+        for (var s = 0; s <= méret; s++) {
+            var újSor = document.createElement("div");
+            újSor.classList.add("sor");
+            //újSor.innerHTML = "*";
+            pascal.appendChild(újSor)
+
+            for (var o = 0; o <= s; o++) {
+                var újElem = document.createElement("div");
+                újElem.innerHTML = "*";
+                number = faktor(s) / (faktor(o) * faktor(s-o))
+
+                
+                újElem.innerHTML = number;
+                újElem.classList.add("elem");
+                Újelem.add("szinLista")
+                újSor.appendChild(újElem);
+
+                
+
+                }
+            }
+        }
+
+
+        function faktor(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            } else {
+                return n * faktor(n - 1)
+            }
+        };
+
+        var faktor2 = function (n) {
+
+        }
+
+        var faktor3 = (n) => {
+
+        }
+    </script>
+</body>
+</html>
