@@ -5,6 +5,20 @@
     <title></title>
 </head>
 <body>
-    <div>Hello kerdesek</div>
+    <div id="eredmeny"></div>
+    <script>
+        fetch("/questions/all")
+            .then(response => response.json)
+            .then(data => kiiratás(data));
+
+        function kiiratás(lista) {
+            console.log(lista)
+            for (var i = 0; i < lista.length; i++) {
+                let ujElem = document.createElement("div");
+                ujElem.innerText = lista[i];
+                document.getElementById("eredmeny").appendChild(ujElem);
+            }
+        }
+    </script>
 </body>
 </html>

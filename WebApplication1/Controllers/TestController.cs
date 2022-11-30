@@ -11,14 +11,22 @@ namespace WebApplication1.Controllers
         [Route("corvinus/szerverido")]
         public IActionResult mind1()
         {
-            return Ok(DateTime.Now.ToString());
+            string pontosidő = DateTime.Now.ToString();
+            return Ok(pontosidő);
         }
 
         [HttpGet]
         [Route("corvinus/echo/{id}")]
         public IActionResult mind2(string id)
         {
-            return Ok(id.ToUpper().Trim());
+            try
+            {
+                return Ok(id.ToUpper().Trim());
+            }
+            catch (Exception)
+            {
+                return BadRequest("Nem jó a bemenő adat");
+            }
         }
     }
 }
